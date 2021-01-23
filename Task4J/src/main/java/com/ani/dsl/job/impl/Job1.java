@@ -1,12 +1,14 @@
 package com.ani.dsl.job.impl;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.ani.dsl.job.IJob;
 
 public class Job1 implements IJob{
 
-	final static Logger logger = Logger.getLogger(Job1.class);
+
+	private static final Logger logger = LogManager.getLogger(Job1.class);
 	private int id =1;
 	//private String jobState;//RUNNING,CANCELLED,COMPLETED
 	

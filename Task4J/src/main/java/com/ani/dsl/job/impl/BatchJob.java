@@ -18,9 +18,11 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.ani.dsl.job.IJob;
+import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
@@ -45,7 +47,7 @@ import com.google.common.util.concurrent.MoreExecutors;
 
 	public class BatchJob implements IJob {
 	
-		final static Logger logger = Logger.getLogger(BatchJob.class);
+		final static Logger logger = LogManager.getLogger(BatchJob.class);
 		
 		private int id = 0;
 		private final static int NO_OF_THREADS;
@@ -107,7 +109,7 @@ import com.google.common.util.concurrent.MoreExecutors;
 		public void execute() throws Exception {
 			
 			ListenableFuture<List<IJob>> futAsList = null;
-			Map<Integer,ListenableFuture<IJob>>  listenableFutureMap = null;
+			Map<Integer,ListenableFuture<IJob>>  listenableFutureMap = Maps.newHashMap();
 			Collection<ListenableFuture<IJob>> listenableFutureList = Collections.emptyList();
 			
 			try{

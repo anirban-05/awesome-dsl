@@ -6,21 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.ani.dsl.job.IJob;
-import com.ani.dsl.job.impl.BatchJob;
-import com.ani.dsl.job.impl.Job1;
-import com.ani.dsl.job.impl.Job2;
-import com.ani.dsl.job.impl.Job3;
 
 public class BatchJobTest {
 	
-	private final static Logger logger = Logger.getLogger(BatchJobTest.class);
+	private static final Logger logger = LogManager.getLogger(BatchJobTest.class);
 	
 	private IJob iJob ;
 	private List<IJob> jobs;
